@@ -9,7 +9,9 @@ export function Guests() {
       <div className="space-y-5">
         <div className="flex items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <span className="block font-medium text-zinc-100">Matheus Ribeiro</span>
+            <span className="block font-medium text-zinc-100">
+              Matheus Ribeiro
+            </span>
             <span className="block text-sm text-zinc-400 truncate">
               math.ribeiro.dev@gmail.com
             </span>
@@ -35,5 +37,5 @@ export function Guests() {
         Gerenciar convidados
       </Button>
     </div>
-  )
+  );
 }

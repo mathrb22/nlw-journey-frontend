@@ -6,71 +6,70 @@ import { DestinationAndDateStep } from "./steps/destination-and-date-step";
 import { InviteGuestsStep } from "./steps/invite-guests-step";
 
 export function CreateTripPage() {
-  const navigate = useNavigate()
-  const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false)
-  const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false)
-  const [isConfirmTripModalOpen, setIsConfirmTripModalOpen] = useState(false)
+  const navigate = useNavigate();
+  const [isGuestsInputOpen, setIsGuestsInputOpen] = useState(false);
+  const [isGuestsModalOpen, setIsGuestsModalOpen] = useState(false);
+  const [isConfirmTripModalOpen, setIsConfirmTripModalOpen] = useState(false);
   const [emailsToInvite, setEmailsToInvite] = useState([
-    'math.ribeiro.dev@gmail.com',
-    'john@acme.com'
-  ])
+    "math.ribeiro.dev@gmail.com",
+    "john@acme.com",
+  ]);
 
   function openGuestsInput() {
-    setIsGuestsInputOpen(true)
+    setIsGuestsInputOpen(true);
   }
 
   function closeGuestsInput() {
-    setIsGuestsInputOpen(false)
+    setIsGuestsInputOpen(false);
   }
 
   function openGuestsModal() {
-    setIsGuestsModalOpen(true)
+    setIsGuestsModalOpen(true);
   }
 
   function closeGuestsModal() {
-    setIsGuestsModalOpen(false)
+    setIsGuestsModalOpen(false);
   }
 
   function openConfirmTripModal() {
-    setIsConfirmTripModalOpen(true)
+    setIsConfirmTripModalOpen(true);
   }
 
   function closeConfirmTripModal() {
-    setIsConfirmTripModalOpen(false)
+    setIsConfirmTripModalOpen(false);
   }
 
   function addNewEmailToInvite(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+    event.preventDefault();
 
-    const data = new FormData(event.currentTarget)
-    const email = data.get('email')?.toString()
+    const data = new FormData(event.currentTarget);
+    const email = data.get("email")?.toString();
 
     if (!email) {
-      return
+      return;
     }
 
     if (emailsToInvite.includes(email)) {
-      return
+      return;
     }
 
-    setEmailsToInvite([
-      ...emailsToInvite,
-      email
-    ])
+    setEmailsToInvite([...emailsToInvite, email]);
 
-    event.currentTarget.reset()
+    event.currentTarget.reset();
   }
 
   function removeEmailFromInvites(emailToRemove: string) {
-    const newEmailList = emailsToInvite.filter(email => email !== emailToRemove)
+    const newEmailList = emailsToInvite.filter(
+      (email) => email !== emailToRemove
+    );
 
-    setEmailsToInvite(newEmailList)
+    setEmailsToInvite(newEmailList);
   }
 
   function createTrip(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+    event.preventDefault();
 
-    navigate(`/trips/${crypto.randomUUID()}`)
+    navigate(`/trips/${crypto.randomUUID()}`);
   }
 
   return (
@@ -100,8 +99,17 @@ export function CreateTripPage() {
         </div>
 
         <p className="text-sm text-zinc-500">
-          Ao planejar sua viagem pela plann.er você automaticamente concorda <br />
-          com nossos <a className="text-zinc-300 underline" href="#">termos de uso</a> e <a className="text-zinc-300 underline" href="#">políticas de privacidade</a>.
+          Ao planejar sua viagem pela plann.er você automaticamente concorda{" "}
+          <br />
+          com nossos{" "}
+          <a className="text-zinc-300 underline" href="#">
+            termos de uso
+          </a>{" "}
+          e{" "}
+          <a className="text-zinc-300 underline" href="#">
+            políticas de privacidade
+          </a>
+          .
         </p>
       </div>
 

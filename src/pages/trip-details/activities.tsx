@@ -29,7 +29,9 @@ export function Activities() {
           <span className="text-xs text-zinc-500">Segunda-feira</span>
         </div>
 
-        <p className="text-zinc-500 text-sm">Nenhuma atividade cadastrada nessa data.</p>
+        <p className="text-zinc-500 text-sm">
+          Nenhuma atividade cadastrada nessa data.
+        </p>
       </div>
       <div className="space-y-2.5">
         <div className="flex gap-2 items-baseline">
@@ -37,7 +39,9 @@ export function Activities() {
           <span className="text-xs text-zinc-500">Terça-feira</span>
         </div>
 
-        <p className="text-zinc-500 text-sm">Nenhuma atividade cadastrada nessa data.</p>
+        <p className="text-zinc-500 text-sm">
+          Nenhuma atividade cadastrada nessa data.
+        </p>
       </div>
       <div className="space-y-2.5">
         <div className="flex gap-2 items-baseline">
@@ -45,7 +49,9 @@ export function Activities() {
           <span className="text-xs text-zinc-500">Quarta-feira</span>
         </div>
 
-        <p className="text-zinc-500 text-sm">Nenhuma atividade cadastrada nessa data.</p>
+        <p className="text-zinc-500 text-sm">
+          Nenhuma atividade cadastrada nessa data.
+        </p>
       </div>
       <div className="space-y-2.5">
         <div className="flex gap-2 items-baseline">
@@ -53,8 +59,10 @@ export function Activities() {
           <span className="text-xs text-zinc-500">Quinta-feira</span>
         </div>
 
-        <p className="text-zinc-500 text-sm">Nenhuma atividade cadastrada nessa data.</p>
+        <p className="text-zinc-500 text-sm">
+          Nenhuma atividade cadastrada nessa data.
+        </p>
       </div>
     </div>
-  )
+  );
 }

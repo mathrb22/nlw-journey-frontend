@@ -3,27 +3,40 @@ import { FormEvent } from "react";
 import { Button } from "../../components/button";
 
 interface ConfirmTripModalProps {
-  closeConfirmTripModal: () => void
-  createTrip: (event: FormEvent<HTMLFormElement>) => void
+  closeConfirmTripModal: () => void;
+  createTrip: (event: FormEvent<HTMLFormElement>) => void;
 }
 
 export function ConfirmTripModal({
   closeConfirmTripModal,
-  createTrip
+  createTrip,
 }: ConfirmTripModalProps) {
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black/65 flex items-center justify-center">
       <div className="w-[640px] rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <h2 className="font-lg font-semibold">Confirmar criação de viagem</h2>
+            <h2 className="font-lg font-semibold">
+              Confirmar criação de viagem
+            </h2>
             <button>
-              <X className="size-5 text-zinc-400" onClick={closeConfirmTripModal} />
+              <X
+                className="size-5 text-zinc-400"
+                onClick={closeConfirmTripModal}
+              />
             </button>
           </div>
 
           <p className="text-sm text-zinc-400">
-          Para concluir a criação da viagem para <span className="font-semibold text-zinc-100">Florianópolis, Brasil</span> nas datas de <span className="font-semibold text-zinc-100">18 a 22 de Agosto de 2024</span> preencha seus dados abaixo:
+            Para concluir a criação da viagem para{" "}
+            <span className="font-semibold text-zinc-100">
+              Florianópolis, Brasil
+            </span>{" "}
+            nas datas de{" "}
+            <span className="font-semibold text-zinc-100">
+              18 a 22 de Agosto de 2024
+            </span>{" "}
+            preencha seus dados abaixo:
           </p>
         </div>
 
@@ -54,5 +67,5 @@ export function ConfirmTripModal({
         </form>
       </div>
     </div>
-  )
+  );
 }

@@ -10,7 +10,7 @@ interface DestinationAndDateStepProps {
 export function DestinationAndDateStep({
   closeGuestsInput,
   isGuestsInputOpen,
-  openGuestsInput
+  openGuestsInput,
 }: DestinationAndDateStepProps) {
   return (
     <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-3">
@@ -48,5 +48,5 @@ export function DestinationAndDateStep({
         </Button>
       )}
     </div>
-  )
+  );
 }
