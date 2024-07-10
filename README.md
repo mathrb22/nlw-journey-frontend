@@ -47,18 +47,34 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
 
 ## 🚀 Tecnologias e ferramentas
 
-<div>
-	<table>
-		<tr style="display: flex;">
-			<td style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><img width="45" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/>
-      React</td>
-			<td style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><img width="45" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/>
-      TypeScript</td>
-			<td style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><img width="45" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS"/>Tailwind CSS</td>
-			<td style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><img width="45" src="https://github-production-user-asset-6210df.s3.amazonaws.com/62091613/261395532-b40892ef-efb8-4b0e-a6b5-d1cfc2f3fc35.png" alt="Vite" title="Vite"/>Vite</td>
-		</tr>
-	</table>
-</div>
+<table>
+  <tr>
+    <td align="center" width="100">
+      <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
+        <img width="60" src="https://user-images.githubusercontent.com/25181517/183897015-94a058a6-b86e-4e42-a37f-bf92061753e5.png" alt="React" title="React"/>
+      </a>
+      <span>React</span>
+    </td>
+    <td align="center" width="100">
+      <a href="https://www.typescriptlang.org/">
+        <img width="60" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" alt="TypeScript" title="TypeScript"/>
+      </a>
+      <span>TypeScript</span>
+    </td>
+    <td align="center" width="120">
+      <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer">
+        <img width="60" src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" alt="Tailwind CSS" title="Tailwind CSS"/>
+      </a>
+      <span>Tailwind CSS</span>
+    </td>
+    <td align="center" width="100">
+      <a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">
+        <img width="60" src="https://github.com/marwin1991/profile-technology-icons/assets/62091613/b40892ef-efb8-4b0e-a6b5-d1cfc2f3fc35" alt="Vite" title="Vite"/>
+      </a>
+      <span>Vite.js</span>
+    </td>
+  </tr>
+</table>
 
 ## 🔧 Instalação e execução
 
