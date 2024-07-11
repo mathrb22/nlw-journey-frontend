@@ -111,6 +111,11 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
   <img src=".github/plann.er-add-activity.png" alt="Cadastro de atividade no Plann.er" >
 </figure>
 
+<figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px">Cadastro de link:</figcaption>
+  <img src=".github/plann.er-add-link.png" alt="Cadastro de link no Plann.er" >
+</figure>
+
 ## 🎨 Protótipo
 
 O protótipo do projeto foi desenvolvido utilizando a ferramenta [**Figma**](https://www.figma.com/). Você pode acessá-lo [aqui](https://www.figma.com/community/file/1392276515495389646/nlw-journey-planejador-de-viagem).
