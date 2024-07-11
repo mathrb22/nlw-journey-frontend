@@ -9,7 +9,7 @@ import { ptBR } from "date-fns/locale";
 import { format } from "date-fns";
 
 interface CreateActivityModalProps {
-  closeCreateActivityModal: () => void;
+  closeCreateActivityModal: (created?: boolean) => void;
   minDate: string;
   maxDate: string;
 }
@@ -59,7 +59,7 @@ export function CreateActivityModal({
         setTimeout(() => {
           toast.success("Atividade adicionada com sucesso!");
           setIsCreatingActivity(false);
-          window.document.location.reload();
+          closeCreateActivityModal(true);
         }, 1000);
       })
       .catch(() => {
@@ -77,7 +77,7 @@ export function CreateActivityModal({
             <button>
               <X
                 className="size-5 text-zinc-400"
-                onClick={closeCreateActivityModal}
+                onClick={() => closeCreateActivityModal()}
               />
             </button>
           </div>

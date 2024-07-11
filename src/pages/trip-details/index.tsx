@@ -1,16 +1,13 @@
-import { Plus } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Activities } from "./activities";
 import { DestinationAndDateHeader } from "./destination-and-date-header";
 import { ImportantLinks } from "./important-links";
-import { CreateActivityModal } from "./create-activity-modal";
 import { Guests } from "./guests";
 import { useNavigate, useParams } from "react-router-dom";
 import { api } from "../../lib/axios";
-import { format, parseISO } from "date-fns";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
-import { Button } from "../../components/button";
+import { Activities } from "./activities";
+import { ExternalLink, Github } from "lucide-react";
 
 export interface Trip {
   id: string;
@@ -21,17 +18,6 @@ export interface Trip {
 }
 
 export function TripDetailsPage() {
-  const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
-    useState(false);
-
-  function openCreateActivityModal() {
-    setIsCreateActivityModalOpen(true);
-  }
-
-  function closeCreateActivityModal() {
-    setIsCreateActivityModalOpen(false);
-  }
-
   const navigate = useNavigate();
 
   const { tripId } = useParams();
@@ -63,29 +49,28 @@ export function TripDetailsPage() {
 
   return (
     <div className="max-w-6xl px-6 py-10 mx-auto space-y-8 ">
+      <div className="flex items-center justify-between">
+        <img src="/logo.svg" alt="plann.er" />
+        <a
+          className="flex items-center gap-2 text-zinc-400 group hover:text-zinc-500 transition-all duration-300"
+          href="https://github.com/mathrb22/nlw-journey-frontend"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Github className="size-5 text-zinc-400 inline-block group-hover:text-zinc-500 transition-all duration-300" />
+          GitHub
+          <ExternalLink className="size-5 text-zinc-400 inline-block group-hover:text-zinc-500 transition-all duration-300" />
+        </a>
+      </div>
       <DestinationAndDateHeader trip={trip} isLoadingTrip={isLoadingTrip} />
 
       <main
         className="flex flex-col gap-16 px-4 lg:flex-row
       "
       >
-        <div className="flex-1 space-y-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-between">
-            <h2 className="text-3xl font-semibold">Atividades</h2>
-
-            <Button
-              onClick={openCreateActivityModal}
-              disabled={isLoadingTrip}
-              className="bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium flex items-center gap-2 hover:bg-lime-400"
-            >
-              <Plus className="size-5" />
-              Cadastrar atividade
-            </Button>
-          </div>
-
-          <Activities />
+        <div className="flex-1">
+          <Activities trip={trip} />
         </div>
-
         <div className="w-full lg:w-80 space-y-6">
           <ImportantLinks />
 
@@ -94,17 +79,6 @@ export function TripDetailsPage() {
           <Guests />
         </div>
       </main>
-
-      {isCreateActivityModalOpen && (
-        <CreateActivityModal
-          closeCreateActivityModal={closeCreateActivityModal}
-          minDate={format(
-            parseISO(trip?.starts_at || ""),
-            "yyyy-MM-dd'T'HH:mm"
-          )}
-          maxDate={format(parseISO(trip?.ends_at || ""), "yyyy-MM-dd'T'HH:mm")}
-        />
-      )}
     </div>
   );
 }

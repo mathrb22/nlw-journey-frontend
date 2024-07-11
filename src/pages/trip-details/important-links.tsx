@@ -52,8 +52,13 @@ export function ImportantLinks() {
         {isLoadingImportantLinks && (
           <div className="flex flex-col gap-6">
             <InfoSkeleton />
-            <InfoSkeleton />
           </div>
+        )}
+
+        {!isLoadingImportantLinks && importantLinks.length === 0 && (
+          <p className="text-zinc-400">
+            Nenhum link cadastrado para essa viagem.
+          </p>
         )}
 
         {!isLoadingImportantLinks &&

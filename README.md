@@ -27,6 +27,8 @@
 [**Sobre**](#-sobre) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Objetivo**](#-objetivo) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Tecnologias e ferramentas**](#-tecnologias-e-ferramentas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Demonstração**](#-demonstração) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Protótipo**](#-protótipo) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Instalação e execução**](#-instalação-e-execução) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Como contribuir**](#-como-contribuir) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Licença**](#-licença)
@@ -75,6 +77,42 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
     </td>
   </tr>
 </table>
+
+## 💻 Demonstração
+
+<figure style="width: 100%">
+  <img src=".github/plann.er-trip-creation.png" alt="Criação de uma viagem no Plann.er" >
+  <figcaption>Criação de uma viagem</figcaption>
+</figure>
+
+<figure style="width: 100%">
+  <img src=".github/plann.er-invites.png" alt="Inclusão de convidados no Plann.er" >
+  <figcaption>Inclusão de convidados</figcaption>
+</figure>
+
+<figure style="width: 100%">
+  <img src=".github/plann.er-trip-confirmation.png" alt="Confirmar criação de uma viagem no Plann.er" >
+  <figcaption>Confirmar criação de uma viagem</figcaption>
+</figure>
+
+<figure style="width: 100%">
+  <img src=".github/plann.er-trip-details-skeleton.png" alt="Skeleton loader para as informações da viagem" >
+  <figcaption>Skeleton loader para as informações da viagem</figcaption>
+</figure>
+
+<figure style="width: 100%">
+  <img src=".github/plann.er-trip-details.png" alt="Detalhes do plano de viagem no Plann.er" >
+  <figcaption>Detalhes do plano de viagem</figcaption>
+</figure>
+
+<figure style="width: 100%">
+  <img src=".github/plann.er-add-activity.png" alt="Cadastro de atividade no Plann.er" >
+  <figcaption>Cadastro de atividade</figcaption>
+</figure>
+
+## 🎨 Protótipo
+
+O protótipo do projeto foi desenvolvido utilizando a ferramenta [**Figma**](https://www.figma.com/). Você pode acessá-lo [aqui](https://www.figma.com/community/file/1392276515495389646/nlw-journey-planejador-de-viagem).
 
 ## 🔧 Instalação e execução
 
