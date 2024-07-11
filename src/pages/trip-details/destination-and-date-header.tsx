@@ -30,7 +30,7 @@ export function DestinationAndDateHeader({
         <Button variant="secondary" onClick={() => navigate("/")}>
           <ArrowLeft className="size-6 text-zinc-400 cursor-pointer" />
         </Button>
-        {!isLoadingTrip ? (
+        {isLoadingTrip ? (
           <Skeleton
             baseColor="#292929"
             highlightColor="#444"
@@ -47,7 +47,7 @@ export function DestinationAndDateHeader({
 
       <div className="flex flex-col md:flex-row md:items-center gap-5">
         <div className="flex items-center gap-2">
-          {!isLoadingTrip ? (
+          {isLoadingTrip ? (
             <Skeleton
               baseColor="#292929"
               highlightColor="#444"

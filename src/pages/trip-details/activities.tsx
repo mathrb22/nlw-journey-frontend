@@ -66,7 +66,7 @@ export function Activities({ trip }: ActivitiesProps) {
 
   return (
     <div className="space-y-8">
-      {!isLoadingActivities && (
+      {isLoadingActivities && (
         <div className="flex flex-col gap-8">
           <>
             <ActivitySkeleton />
@@ -78,7 +78,7 @@ export function Activities({ trip }: ActivitiesProps) {
         </div>
       )}
 
-      {activities && isLoadingActivities && (
+      {activities && !isLoadingActivities && (
         <div className="flex-1 space-y-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-between">
             <h2 className="text-3xl font-semibold">Atividades</h2>

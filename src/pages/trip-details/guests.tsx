@@ -44,7 +44,7 @@ export function Guests() {
       <h2 className="font-semibold text-xl">Convidados</h2>
 
       <div className="space-y-5">
-        {!isLoadingParticipants && (
+        {isLoadingParticipants && (
           <div className="flex flex-col gap-6">
             <InfoSkeleton />
             <InfoSkeleton />
@@ -52,11 +52,11 @@ export function Guests() {
           </div>
         )}
 
-        {isLoadingParticipants && participants.length === 0 && (
+        {!isLoadingParticipants && participants.length === 0 && (
           <p className="text-zinc-400">Nenhum convidado para essa viagem.</p>
         )}
 
-        {isLoadingParticipants &&
+        {!isLoadingParticipants &&
           participants &&
           participants.map((participant, index) => (
             <div
