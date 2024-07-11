@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import { CreateTripPage } from "./pages/create-trip";
 import { TripDetailsPage } from "./pages/trip-details";
+import { Toaster } from "sonner";
 
 const router = createBrowserRouter([
   {
@@ -22,5 +23,10 @@ const router = createBrowserRouter([
 ]);
 
 export function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <Toaster richColors expand theme="dark" position="top-center" />
+      <RouterProvider router={router} />
+    </>
+  );
 }
