@@ -79,6 +79,17 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
   </tr>
 </table>
 
+## ✨ Features
+
+- [x] Criação de viagens
+- [x] Seleção de convidados para a viagem
+- [x] Cadastro de atividades
+- [x] Validação de datas disponíveis para atividades
+- [x] Cadastro de links úteis
+- [x] Skeleton loader para carregamento de informações
+- [x] Design responsivo
+- [x] Cópia de link para a área de transferência
+
 ## 💻 Demonstração
 
 [plann-er-demo.webm](https://github.com/mathrb22/nlw-journey-frontend/assets/62413443/3d8dcfa3-9fb8-47d0-80d6-e9f55627f19e)
