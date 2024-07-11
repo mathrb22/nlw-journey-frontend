@@ -55,7 +55,7 @@ export function InviteGuestsModal({
 
         <form
           onSubmit={addNewEmailToInvite}
-          className="p-2.5 bg-zinc-950 border border-zinc-800 rounded-lg flex items-center gap-2"
+          className="p-4 md:p-2.5 bg-zinc-950 border border-zinc-800 rounded-lg flex flex-col md:flex-row gap-6 md:items-center md:gap-2"
         >
           <div className="px-2 flex items-center flex-1 gap-2">
             <AtSign className="text-zinc-400 size-5" />

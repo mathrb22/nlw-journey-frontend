@@ -13,7 +13,10 @@ export function InviteGuestsStep({
   openGuestsModal,
 }: InviteGuestsStepProps) {
   return (
-    <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-3">
+    <div
+      className="h-auto md:h-16 bg-zinc-900 p-4 rounded-xl flex
+    flex-col md:flex-row md:items-center shadow-shape gap-6 md:gap-3"
+    >
       <button
         type="button"
         onClick={openGuestsModal}
@@ -31,7 +34,7 @@ export function InviteGuestsStep({
         )}
       </button>
 
-      <div className="w-px h-6 bg-zinc-800" />
+      <div className="hidden md:block w-px h-6 bg-zinc-800" />
 
       <Button onClick={openConfirmTripModal}>
         Confirmar viagem

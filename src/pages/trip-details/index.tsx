@@ -10,6 +10,7 @@ import { api } from "../../lib/axios";
 import { format, parseISO } from "date-fns";
 import { toast } from "sonner";
 import { AxiosError } from "axios";
+import { Button } from "../../components/button";
 
 export interface Trip {
   id: string;
@@ -36,6 +37,8 @@ export function TripDetailsPage() {
   const { tripId } = useParams();
   const [trip, setTrip] = useState<Trip | undefined>();
 
+  const [isLoadingTrip, setIsLoadingTrip] = useState(true);
+
   useEffect(() => {
     getTripDetails();
   }, [tripId]);
@@ -44,38 +47,46 @@ export function TripDetailsPage() {
     api
       .get(`trips/${tripId}`)
       .then((response) => {
-        setTrip(response.data.trip);
+        setTimeout(() => {
+          setTrip(response.data.trip);
+          setIsLoadingTrip(false);
+        }, 1000);
       })
       .catch((err) => {
         if (err instanceof AxiosError && err.response?.status === 400) {
           navigate("/404");
           toast.error("Plano de viagem não encontrado.");
+          setIsLoadingTrip(false);
         }
       });
   };
 
   return (
-    <div className="max-w-6xl px-6 py-10 mx-auto space-y-8">
-      <DestinationAndDateHeader trip={trip} />
+    <div className="max-w-6xl px-6 py-10 mx-auto space-y-8 ">
+      <DestinationAndDateHeader trip={trip} isLoadingTrip={isLoadingTrip} />
 
-      <main className="flex gap-16 px-4">
+      <main
+        className="flex flex-col gap-16 px-4 lg:flex-row
+      "
+      >
         <div className="flex-1 space-y-6">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center justify-between">
             <h2 className="text-3xl font-semibold">Atividades</h2>
 
-            <button
+            <Button
               onClick={openCreateActivityModal}
+              disabled={isLoadingTrip}
               className="bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium flex items-center gap-2 hover:bg-lime-400"
             >
               <Plus className="size-5" />
               Cadastrar atividade
-            </button>
+            </Button>
           </div>
 
           <Activities />
         </div>
 
-        <div className="w-80 space-y-6">
+        <div className="w-full lg:w-80 space-y-6">
           <ImportantLinks />
 
           <div className="w-full h-px bg-zinc-800" />

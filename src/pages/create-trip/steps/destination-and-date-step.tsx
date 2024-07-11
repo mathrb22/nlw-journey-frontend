@@ -43,8 +43,8 @@ export function DestinationAndDateStep({
       : null;
 
   return (
-    <div className="h-16 bg-zinc-900 px-4 rounded-xl flex items-center shadow-shape gap-3">
-      <div className="flex items-center gap-2 flex-1">
+    <div className="h-auto md:h-16 bg-zinc-900 p-4 rounded-xl flex flex-col md:flex-row md:items-center shadow-shape gap-6 md:gap-4">
+      <div className="flex flex items-center gap-2 flex-1">
         <MapPin className="size-5 text-zinc-400" />
         <input
           disabled={isGuestsInputOpen}
@@ -94,7 +94,7 @@ export function DestinationAndDateStep({
         </div>
       )}
 
-      <div className="w-px h-6 bg-zinc-800" />
+      <div className="hidden md:block w-px h-6 bg-zinc-800" />
 
       {isGuestsInputOpen ? (
         <Button onClick={closeGuestsInput} variant="secondary">

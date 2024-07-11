@@ -7,6 +7,7 @@ import { InviteGuestsStep } from "./steps/invite-guests-step";
 import { DateRange } from "react-day-picker";
 import { api } from "../../lib/axios";
 import { toast } from "sonner";
+import { Github } from "lucide-react";
 
 export function CreateTripPage() {
   const navigate = useNavigate();
@@ -173,6 +174,27 @@ export function CreateTripPage() {
           </a>
           .
         </p>
+
+        <div className="flex flex-col items-center justify-center gap-2">
+          <p className="text-sm text-zinc-500">
+            Desenvolvido por{" "}
+            <a
+              className="text-zinc-400 underline"
+              href="https://github.com/mathrb22"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mathrb22
+            </a>
+          </p>
+          <a
+            href="https://github.com/mathrb22/nlw-journey-frontend"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github className="size-5 text-zinc-400 inline-block" />
+          </a>
+        </div>
       </div>
 
       {isGuestsModalOpen && (
