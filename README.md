@@ -81,6 +81,8 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
 
 ## 💻 Demonstração
 
+[plann-er-demo.webm](https://github.com/mathrb22/nlw-journey-frontend/assets/62413443/3d8dcfa3-9fb8-47d0-80d6-e9f55627f19e)
+
 <figure style="width: 100%">
   <figcaption style="margin-bottom: 8px">Criação de uma viagem:</figcaption>
   <img src=".github/plann.er-trip-creation.png" alt="Criação de uma viagem no Plann.er" >
