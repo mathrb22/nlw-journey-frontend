@@ -81,33 +81,33 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
 ## 💻 Demonstração
 
 <figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px">Criação de uma viagem:</figcaption>
   <img src=".github/plann.er-trip-creation.png" alt="Criação de uma viagem no Plann.er" >
-  <figcaption>Criação de uma viagem</figcaption>
 </figure>
 
 <figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px">Inclusão de convidados:</figcaption>
   <img src=".github/plann.er-invites.png" alt="Inclusão de convidados no Plann.er" >
-  <figcaption>Inclusão de convidados</figcaption>
 </figure>
 
 <figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px">Confirmar criação de uma viagem:</figcaption>
   <img src=".github/plann.er-trip-confirmation.png" alt="Confirmar criação de uma viagem no Plann.er" >
-  <figcaption>Confirmar criação de uma viagem</figcaption>
 </figure>
 
 <figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px;">Skeleton loader para as informações da viagem:</figcaption>
   <img src=".github/plann.er-trip-details-skeleton.png" alt="Skeleton loader para as informações da viagem" >
-  <figcaption>Skeleton loader para as informações da viagem</figcaption>
 </figure>
 
 <figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px">Detalhes do plano de viagem:</figcaption>
   <img src=".github/plann.er-trip-details.png" alt="Detalhes do plano de viagem no Plann.er" >
-  <figcaption>Detalhes do plano de viagem</figcaption>
 </figure>
 
 <figure style="width: 100%">
+  <figcaption style="margin-bottom: 8px">Cadastro de atividade:</figcaption>
   <img src=".github/plann.er-add-activity.png" alt="Cadastro de atividade no Plann.er" >
-  <figcaption>Cadastro de atividade</figcaption>
 </figure>
 
 ## 🎨 Protótipo
