@@ -2,6 +2,7 @@ import { AtSign, User, X } from "lucide-react";
 import { FormEvent } from "react";
 import { Button } from "../../components/button";
 import { ClipLoader } from "react-spinners";
+import { DateRange } from "react-day-picker";
 
 interface ConfirmTripModalProps {
   closeConfirmTripModal: () => void;
@@ -9,6 +10,8 @@ interface ConfirmTripModalProps {
   setOwnerEmail: (email: string) => void;
   createTrip: (event: FormEvent<HTMLFormElement>) => void;
   isCreatingTrip: boolean;
+  destination: string;
+  eventStartAndEndDates: DateRange | undefined;
 }
 
 export function ConfirmTripModal({
@@ -17,6 +20,8 @@ export function ConfirmTripModal({
   setOwnerEmail,
   setOwnerName,
   isCreatingTrip,
+  destination,
+  eventStartAndEndDates,
 }: ConfirmTripModalProps) {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
@@ -36,13 +41,18 @@ export function ConfirmTripModal({
 
           <p className="text-sm text-zinc-400">
             Para concluir a criação da viagem para{" "}
-            <span className="font-semibold text-zinc-100">
-              Florianópolis, Brasil
-            </span>{" "}
-            nas datas de{" "}
-            <span className="font-semibold text-zinc-100">
-              16 a 27 de Agosto de 2024
-            </span>{" "}
+            <span className="font-semibold text-zinc-100">{destination}</span>{" "}
+            {eventStartAndEndDates &&
+              eventStartAndEndDates.from &&
+              eventStartAndEndDates.to && (
+                <>
+                  <span>nas datas de </span>
+                  <span className="font-semibold text-zinc-100">
+                    {eventStartAndEndDates?.from.toLocaleDateString()} até{" "}
+                    {eventStartAndEndDates?.to.toLocaleDateString()}
+                  </span>{" "}
+                </>
+              )}
             preencha seus dados abaixo:
           </p>
         </div>

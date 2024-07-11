@@ -11,6 +11,7 @@ interface DestinationAndDateStepProps {
   eventStartAndEndDates: DateRange | undefined;
   closeGuestsInput: () => void;
   openGuestsInput: () => void;
+  destination: string;
   setDestination: (destination: string) => void;
   setEventStartAndEndDates: (dates: DateRange | undefined) => void;
 }
@@ -19,6 +20,7 @@ export function DestinationAndDateStep({
   closeGuestsInput,
   isGuestsInputOpen,
   openGuestsInput,
+  destination,
   setDestination,
   setEventStartAndEndDates,
   eventStartAndEndDates,
@@ -102,7 +104,14 @@ export function DestinationAndDateStep({
           <Settings2 className="size-5" />
         </Button>
       ) : (
-        <Button onClick={openGuestsInput}>
+        <Button
+          onClick={openGuestsInput}
+          disabled={
+            !destination ||
+            !eventStartAndEndDates?.from ||
+            !eventStartAndEndDates
+          }
+        >
           Continuar
           <ArrowRight className="size-5" />
         </Button>
