@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import { InfoSkeleton } from "./guests-skeleton";
 import { toast } from "sonner";
+import { CreateLinkModal } from "./create-link-modal";
 
 export interface ImportantLink {
   id?: string;
@@ -20,6 +21,21 @@ export function ImportantLinks() {
   const { tripId } = useParams();
   const [importantLinks, setImportantLinks] = useState<ImportantLink[]>([]);
   const [isLoadingImportantLinks, setIsLoadingImportantLinks] = useState(false);
+
+  const [isCreateLinkModalOpen, setIsCreateLinkModalOpen] =
+  useState(false);
+
+  const openCreateLinkModal = () => {
+    setIsCreateLinkModalOpen(true);
+  };
+
+  const closeCreateLinkModal = (created?: boolean) => {
+    setIsCreateLinkModalOpen(false);
+
+    if (created) {
+      getImportantLinks();
+    }
+  };
 
   useEffect(() => {
     getImportantLinks();
@@ -92,11 +108,18 @@ export function ImportantLinks() {
       <Button
         variant="secondary"
         size="full"
+        onClick={openCreateLinkModal}
         disabled={isLoadingImportantLinks}
       >
         <Plus className="size-5" />
         Cadastrar novo link
       </Button>
+
+      {isCreateLinkModalOpen && (
+        <CreateLinkModal
+          closeCreateLinkModal={closeCreateLinkModal}
+        />
+      )}
     </div>
   );
 }
