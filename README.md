@@ -29,6 +29,7 @@
 [**Tecnologias e ferramentas**](#-tecnologias-e-ferramentas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Demonstração**](#-demonstração) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Protótipo**](#-protótipo) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Referência da API**](#-referência-da-api) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Instalação e execução**](#-instalação-e-execução) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Como contribuir**](#-como-contribuir) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Licença**](#-licença)
@@ -113,6 +114,14 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
 ## 🎨 Protótipo
 
 O protótipo do projeto foi desenvolvido utilizando a ferramenta [**Figma**](https://www.figma.com/). Você pode acessá-lo [aqui](https://www.figma.com/community/file/1392276515495389646/nlw-journey-planejador-de-viagem).
+
+## ⚙ Referência da API
+
+A API utilizada neste projeto foi desenvolvida pela trilha de Nodejs do NLW Journey. Você pode acessar o repositório do backend [aqui](https://github.com/mathrb22/nlw-journey-nodejs).
+
+🔗 Documentação da API base: [NLW Journey Nodejs API](https://nlw-journey.apidocumentation.com/reference)
+
+> **Nota:** Para rodar o frontend em sua máquina, será necessário ter o backend rodando localmente para conexão dos recursos do banco de dados. Siga as instruções no repositório do backend para configurá-lo em sua máquina.
 
 ## 🔧 Instalação e execução
 
