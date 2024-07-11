@@ -10,12 +10,7 @@ export function ActivitySkeleton() {
           width={145}
           height={24}
         />
-        <Skeleton
-          baseColor="#292929"
-          highlightColor="#444"
-          width={620}
-          height={44}
-        />
+        <Skeleton baseColor="#292929" highlightColor="#444" height={44} />
       </>
     </div>
   );

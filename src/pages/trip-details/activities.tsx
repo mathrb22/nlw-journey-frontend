@@ -45,7 +45,7 @@ export function Activities() {
   return (
     <div className="space-y-8">
       {isLoadingActivities && (
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-8">
           <>
             <ActivitySkeleton />
             <ActivitySkeleton />
