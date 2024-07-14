@@ -27,6 +27,7 @@
 [**Sobre**](#-sobre) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Objetivo**](#-objetivo) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Tecnologias e ferramentas**](#-tecnologias-e-ferramentas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Features**](#-features) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Demonstração**](#-demonstração) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Protótipo**](#-protótipo) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Referência da API**](#-referência-da-api) &nbsp;&nbsp;**|**&nbsp;&nbsp;
@@ -81,14 +82,14 @@ O objetivo principal do **Plann.er** é criar uma plataforma que permita aos usu
 
 ## ✨ Features
 
-- [x] Criação de viagens
-- [x] Seleção de convidados para a viagem
-- [x] Cadastro de atividades
-- [x] Validação de datas disponíveis para atividades
-- [x] Cadastro de links úteis
-- [x] Skeleton loader para carregamento de informações
-- [x] Design responsivo
-- [x] Cópia de link para a área de transferência
+✅ Criação de viagens</br>
+✅ Seleção de convidados para a viagem</br>
+✅ Cadastro de atividades</br>
+✅ Validação de datas disponíveis para atividades</br>
+✅ Cadastro de links úteis</br>
+✅ Skeleton loader para carregamento de informações</br>
+✅ Design responsivo</br>
+✅ Cópia de link para a área de transferência</br>
 
 ## 💻 Demonstração
 
