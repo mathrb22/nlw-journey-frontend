@@ -1,21 +1,21 @@
-import { CircleCheck, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { api } from "../../lib/axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { ActivitySkeleton } from "./activity-skeleton";
+import { ActivitySkeleton } from "../../components/activity-skeleton";
 import { Button } from "../../components/button";
 import { CreateActivityModal } from "./create-activity-modal";
 import { Trip } from ".";
+import { Activity, ActivityCard } from "./activity-card";
+import { ConfirmDeleteModal } from "../../components/confirm-delete-modal";
+import { toast } from "sonner";
+import { useTripDetailsContext } from "../../contexts/TripDetailsContext";
 
-export interface Activity {
+export interface TripDay {
   date: string;
-  activities: {
-    id: string;
-    title: string;
-    occurs_at: string;
-  }[];
+  activities: Activity[];
 }
 
 export interface ActivitiesProps {
@@ -24,8 +24,19 @@ export interface ActivitiesProps {
 
 export function Activities({ trip }: ActivitiesProps) {
   const { tripId } = useParams();
-  const [activities, setActivities] = useState<Activity[]>([]);
-  const [isLoadingActivities, setIsLoadingActivities] = useState(false);
+  const {
+    activities,
+    getActivities,
+    isLoadingActivities,
+    setIsLoadingActivities,
+  } = useTripDetailsContext();
+
+  const [selectedActivity, setSelectedActivity] = useState<
+    Activity | undefined
+  >();
+
+  const [ìsConfirmDeleteModalOpen, setIsConfirmDeleteModalOpen] =
+    useState(false);
 
   const [isCreateActivityModalOpen, setIsCreateActivityModalOpen] =
     useState(false);
@@ -36,32 +47,48 @@ export function Activities({ trip }: ActivitiesProps) {
 
   const closeCreateActivityModal = (created?: boolean) => {
     setIsCreateActivityModalOpen(false);
+    setSelectedActivity(undefined);
 
     if (created) {
       getActivities();
     }
   };
 
+  const handleEdit = (activity: Activity) => {
+    setSelectedActivity(activity);
+    setIsCreateActivityModalOpen(true);
+  };
+
+  const handleDelete = (activity: Activity) => {
+    setSelectedActivity(activity);
+    setIsConfirmDeleteModalOpen(true);
+  };
+
+  const onCloseConfirmDeleteModal = () => {
+    setSelectedActivity(undefined);
+    setIsConfirmDeleteModalOpen(false);
+  };
+
   useEffect(() => {
+    setIsLoadingActivities(true);
     getActivities();
   }, [tripId]);
 
-  const getActivities = async () => {
-    if (!tripId) return;
+  const deleteActivity = async () => {
+    if (!selectedActivity) return;
 
-    setIsLoadingActivities(true);
-    api
-      .get(`trips/${tripId}/activities`)
-      .then((response) => {
-        setTimeout(() => {
-          setActivities(response.data.activities);
-          setIsLoadingActivities(false);
-        }, 1000);
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsLoadingActivities(false);
-      });
+    const deleteResponse = await api.delete(
+      `/activities/${selectedActivity.id}`
+    );
+
+    if (deleteResponse.status === 200) {
+      toast.success("Atividade removida com sucesso!");
+      setIsConfirmDeleteModalOpen(false);
+      setSelectedActivity(undefined);
+      getActivities();
+    } else {
+      toast.error("Erro ao remover a atividade.");
+    }
   };
 
   return (
@@ -121,17 +148,12 @@ export function Activities({ trip }: ActivitiesProps) {
                   <div className="flex flex-col gap-3">
                     {activity.activities.map((activity) => {
                       return (
-                        <div key={activity.id} className="space-y-2.5">
-                          <div className="px-4 py-2.5 bg-zinc-900 rounded-xl shadow-shape flex items-center gap-3">
-                            <CircleCheck className="size-5 text-lime-300" />
-                            <span className="text-zinc-100">
-                              {activity.title}
-                            </span>
-                            <span className="text-zinc-400 text-sm ml-auto">
-                              {format(activity.occurs_at, `hh:mm`)}
-                            </span>
-                          </div>
-                        </div>
+                        <ActivityCard
+                          key={activity.id}
+                          activity={activity}
+                          onEdit={handleEdit}
+                          onDelete={handleDelete}
+                        />
                       );
                     })}
                   </div>
@@ -148,12 +170,27 @@ export function Activities({ trip }: ActivitiesProps) {
 
       {isCreateActivityModalOpen && (
         <CreateActivityModal
+          isEditing={!!selectedActivity}
+          activity={selectedActivity}
           closeCreateActivityModal={closeCreateActivityModal}
           minDate={format(
             parseISO(trip?.starts_at || ""),
-            "yyyy-MM-dd'T'HH:mm"
+            "yyyy-MM-dd'T'HH:mm",
+            {
+              locale: ptBR,
+            }
           )}
-          maxDate={format(parseISO(trip?.ends_at || ""), "yyyy-MM-dd'T'HH:mm")}
+          maxDate={format(parseISO(trip?.ends_at || ""), "yyyy-MM-dd'T'HH:mm", {
+            locale: ptBR,
+          })}
+        />
+      )}
+
+      {ìsConfirmDeleteModalOpen && (
+        <ConfirmDeleteModal
+          onClose={onCloseConfirmDeleteModal}
+          subtitle="Tem certeza que deseja remover essa atividade?"
+          onConfirm={deleteActivity}
         />
       )}
     </div>

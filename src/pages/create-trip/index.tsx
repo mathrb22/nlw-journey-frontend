@@ -8,6 +8,7 @@ import { DateRange } from "react-day-picker";
 import { api } from "../../lib/axios";
 import { toast } from "sonner";
 import { Github } from "lucide-react";
+import { setEndOfDay } from "../../utils/setEndOfDay";
 
 export function CreateTripPage() {
   const navigate = useNavigate();
@@ -109,10 +110,12 @@ export function CreateTripPage() {
 
     setIsCreatingTrip(true);
 
+    const adjustedEndDate = setEndOfDay(eventStartAndEndDates.to);
+
     const response = await api.post("/trips", {
       destination,
       starts_at: eventStartAndEndDates.from,
-      ends_at: eventStartAndEndDates.to,
+      ends_at: adjustedEndDate,
       emails_to_invite: emailsToInvite,
       owner_name: ownerName,
       owner_email: ownerEmail,

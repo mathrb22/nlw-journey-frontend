@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { DestinationAndDateHeader } from "./destination-and-date-header";
 import { ImportantLinks } from "./important-links";
 import { Guests } from "./guests";
-import { useNavigate, useParams } from "react-router-dom";
-import { api } from "../../lib/axios";
-import { toast } from "sonner";
-import { AxiosError } from "axios";
+import { useParams } from "react-router-dom";
 import { Activities } from "./activities";
 import { ExternalLink, Github } from "lucide-react";
+import { useTripDetailsContext } from "../../contexts/TripDetailsContext";
 
 export interface Trip {
   id: string;
@@ -18,34 +16,14 @@ export interface Trip {
 }
 
 export function TripDetailsPage() {
-  const navigate = useNavigate();
-
   const { tripId } = useParams();
-  const [trip, setTrip] = useState<Trip | undefined>();
 
-  const [isLoadingTrip, setIsLoadingTrip] = useState(true);
+  const { trip, isLoadingTrip, getTripDetails, getActivities } =
+    useTripDetailsContext();
 
   useEffect(() => {
     getTripDetails();
   }, [tripId]);
-
-  const getTripDetails = async () => {
-    api
-      .get(`trips/${tripId}`)
-      .then((response) => {
-        setTimeout(() => {
-          setTrip(response.data.trip);
-          setIsLoadingTrip(false);
-        }, 1000);
-      })
-      .catch((err) => {
-        if (err instanceof AxiosError && err.response?.status === 400) {
-          navigate("/404");
-          toast.error("Plano de viagem não encontrado.");
-          setIsLoadingTrip(false);
-        }
-      });
-  };
 
   return (
     <div className="max-w-6xl px-6 py-10 mx-auto space-y-8 ">
@@ -62,7 +40,14 @@ export function TripDetailsPage() {
           <ExternalLink className="size-5 text-zinc-400 inline-block group-hover:text-zinc-500 transition-all duration-300" />
         </a>
       </div>
-      <DestinationAndDateHeader trip={trip} isLoadingTrip={isLoadingTrip} />
+      <DestinationAndDateHeader
+        trip={trip}
+        isLoadingTrip={isLoadingTrip}
+        onUpdateTrip={() => {
+          getTripDetails();
+          getActivities();
+        }}
+      />
 
       <main
         className="flex flex-col gap-16 px-4 lg:flex-row

@@ -1,10 +1,10 @@
-import { MapPin, Calendar, Settings2, ArrowRight, X } from "lucide-react";
+import { MapPin, Calendar, Settings2, ArrowRight } from "lucide-react";
 import { Button } from "../../../components/button";
 import { useState } from "react";
-import { DateRange, DayPicker } from "react-day-picker";
+import { DateRange } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { format } from "date-fns";
-import { ptBR } from "date-fns/locale";
+import { ModalCalendar } from "../../../components/modal-calendar";
 
 interface DestinationAndDateStepProps {
   isGuestsInputOpen: boolean;
@@ -69,31 +69,11 @@ export function DestinationAndDateStep({
       </button>
 
       {isDatePickerOpen && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
-          <div className="rounded-xl py-5 px-6 shadow-shape bg-zinc-900 space-y-5">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <h2 className="font-lg font-semibold">Selecione a data</h2>
-                <button>
-                  <X
-                    className="size-5 text-zinc-400"
-                    onClick={closeDatePicker}
-                  />
-                </button>
-              </div>
-            </div>
-
-            <DayPicker
-              locale={ptBR}
-              mode="range"
-              disabled={{
-                before: new Date(new Date().setDate(new Date().getDate() + 1)),
-              }}
-              selected={eventStartAndEndDates}
-              onSelect={setEventStartAndEndDates}
-            />
-          </div>
-        </div>
+        <ModalCalendar
+          eventDates={eventStartAndEndDates}
+          setEventDates={setEventStartAndEndDates}
+          closeDatePicker={closeDatePicker}
+        />
       )}
 
       <div className="hidden md:block w-px h-6 bg-zinc-800" />

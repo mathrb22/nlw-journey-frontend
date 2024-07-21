@@ -1,11 +1,11 @@
 import { CheckCircle2, CircleDashed, UserCog } from "lucide-react";
 import { Button } from "../../components/button";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { api } from "../../lib/axios";
-import { InfoSkeleton } from "./guests-skeleton";
+import { InfoSkeleton } from "../../components/guests-skeleton";
+import { useTripDetailsContext } from "../../contexts/TripDetailsContext";
 
-interface Participant {
+export interface Participant {
   id: string;
   name: string | null;
   email: string;
@@ -14,30 +14,18 @@ interface Participant {
 
 export function Guests() {
   const { tripId } = useParams();
-  const [participants, setParticipants] = useState<Participant[]>([]);
-  const [isLoadingParticipants, setIsLoadingParticipants] = useState(false);
+
+  const {
+    participants,
+    getParticipants,
+    isLoadingParticipants,
+    setIsLoadingParticipants,
+  } = useTripDetailsContext();
 
   useEffect(() => {
+    setIsLoadingParticipants(true);
     getParticipants();
   }, [tripId]);
-
-  const getParticipants = async () => {
-    if (!tripId) return;
-    setIsLoadingParticipants(true);
-
-    api
-      .get(`trips/${tripId}/participants`)
-      .then((response) => {
-        setTimeout(() => {
-          setParticipants(response.data.participants);
-          setIsLoadingParticipants(false);
-        }, 1000);
-      })
-      .catch((err) => {
-        console.error(err);
-        setIsLoadingParticipants(false);
-      });
-  };
 
   return (
     <div className="space-y-6">
@@ -52,9 +40,11 @@ export function Guests() {
           </div>
         )}
 
-        {!isLoadingParticipants && participants.length === 0 && (
-          <p className="text-zinc-400">Nenhum convidado para essa viagem.</p>
-        )}
+        {!isLoadingParticipants &&
+          participants &&
+          participants.length === 0 && (
+            <p className="text-zinc-400">Nenhum convidado para essa viagem.</p>
+          )}
 
         {!isLoadingParticipants &&
           participants &&

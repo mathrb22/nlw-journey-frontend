@@ -6,6 +6,7 @@ import {
 import { CreateTripPage } from "./pages/create-trip";
 import { TripDetailsPage } from "./pages/trip-details";
 import { Toaster } from "sonner";
+import { TripDetailsProvider } from "./contexts/TripDetailsContext";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/trips/:tripId",
-    element: <TripDetailsPage />,
+    element: (
+      <TripDetailsProvider>
+        <TripDetailsPage />
+      </TripDetailsProvider>
+    ),
   },
   {
     path: "*",
